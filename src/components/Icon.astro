@@ -1,0 +1,125 @@
+---
+interface Props {
+  name:
+    | "spark"
+    | "arrow"
+    | "insight"
+    | "agent"
+    | "stack"
+    | "integration"
+    | "eye"
+    | "key"
+    | "shield"
+    | "star"
+    | "mail"
+    | "pin";
+  class?: string;
+}
+
+const { name, class: className = "h-5 w-5" } = Astro.props;
+---
+
+{
+  name === "spark" && (
+    <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M12 3 9.5 9.5 3 12l6.5 2.5L12 21l2.5-6.5L21 12l-6.5-2.5L12 3Z"></path>
+    </svg>
+  )
+}
+{
+  name === "arrow" && (
+    <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M5 12h14"></path>
+      <path d="m13 6 6 6-6 6"></path>
+    </svg>
+  )
+}
+{
+  name === "insight" && (
+    <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M4 18h16"></path>
+      <path d="M7 15V9"></path>
+      <path d="M12 15V5"></path>
+      <path d="M17 15v-3"></path>
+    </svg>
+  )
+}
+{
+  name === "agent" && (
+    <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <rect x="4" y="7" width="16" height="10" rx="4"></rect>
+      <path d="M9 12h.01"></path>
+      <path d="M15 12h.01"></path>
+      <path d="M12 7V4"></path>
+    </svg>
+  )
+}
+{
+  name === "stack" && (
+    <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="m12 4 8 4-8 4-8-4 8-4Z"></path>
+      <path d="m4 12 8 4 8-4"></path>
+      <path d="m4 16 8 4 8-4"></path>
+    </svg>
+  )
+}
+{
+  name === "integration" && (
+    <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M7 7h4v4H7z"></path>
+      <path d="M13 13h4v4h-4z"></path>
+      <path d="M11 9h2"></path>
+      <path d="M15 11v2"></path>
+      <path d="M9 11v2"></path>
+      <path d="M11 15h2"></path>
+    </svg>
+  )
+}
+{
+  name === "eye" && (
+    <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z"></path>
+      <circle cx="12" cy="12" r="3"></circle>
+    </svg>
+  )
+}
+{
+  name === "key" && (
+    <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <circle cx="8.5" cy="15.5" r="3.5"></circle>
+      <path d="M12 15.5h9"></path>
+      <path d="M18 12.5v6"></path>
+    </svg>
+  )
+}
+{
+  name === "shield" && (
+    <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M12 3 5 6v6c0 4.5 2.9 7.8 7 9 4.1-1.2 7-4.5 7-9V6l-7-3Z"></path>
+      <path d="m9.5 12 1.8 1.8 3.2-3.6"></path>
+    </svg>
+  )
+}
+{
+  name === "star" && (
+    <svg class={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="m12 2.8 2.8 5.7 6.3.9-4.5 4.4 1 6.2L12 17l-5.6 3 1-6.2L2.9 9.4l6.3-.9L12 2.8Z"></path>
+    </svg>
+  )
+}
+{
+  name === "mail" && (
+    <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+      <path d="m4 7 8 6 8-6"></path>
+    </svg>
+  )
+}
+{
+  name === "pin" && (
+    <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <path d="M12 21s6-5.3 6-11a6 6 0 1 0-12 0c0 5.7 6 11 6 11Z"></path>
+      <circle cx="12" cy="10" r="2.5"></circle>
+    </svg>
+  )
+}
