@@ -5,12 +5,42 @@ import { site } from "../content/site";
 interface Props {
   title?: string;
   description?: string;
+  canonical?: string;
+  image?: string;
+  structuredData?: object | object[];
 }
 
 const {
-  title = `${site.name} | ${site.tagline}`,
-  description = "Custom AI automation systems, software builds, and consulting for teams that need operational leverage."
+  title = site.seo.title,
+  description = site.seo.description,
+  canonical = site.domain,
+  image = new URL(site.seo.ogImage, site.domain).toString(),
+  structuredData
 } = Astro.props;
+
+const pageStructuredData = structuredData ?? [
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: site.name,
+    url: site.domain,
+    email: site.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: site.address
+    },
+    areaServed: "Worldwide",
+    sameAs: [site.domain],
+    description
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: site.name,
+    url: site.domain,
+    description
+  }
+];
 ---
 
 <!doctype html>
@@ -20,19 +50,31 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content={site.seo.keywords.join(", ")} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content={site.name} />
+    <meta name="theme-color" content="#08111d" />
     <meta name="generator" content={Astro.generator} />
+    <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={site.domain} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="canonical" href={site.domain} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <link rel="canonical" href={canonical} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <script type="application/ld+json" set:html={JSON.stringify(pageStructuredData)} />
   </head>
   <body class="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] antialiased">
     <slot />

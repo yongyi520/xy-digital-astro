@@ -6,7 +6,10 @@ import Icon from "../components/Icon.astro";
 import { site } from "../content/site";
 ---
 
-<BaseLayout>
+<BaseLayout
+  title={site.seo.title}
+  description={site.seo.description}
+>
   <Header />
 
   <main>

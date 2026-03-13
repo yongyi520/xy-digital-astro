@@ -2,6 +2,21 @@ export const site = {
   name: "XY Digital LLC",
   tagline: "Agency Automation & AI Systems",
   domain: "https://xydsolutions.com",
+  seo: {
+    title: "Your Agency Multiplier | Agency Automations & AI Systems",
+    description:
+      "XY Digital helps agencies save time with automations, AI agents, and smart systems. Cut busy work, speed up operations, and book a 1-hour consult.",
+    keywords: [
+      "agency automation",
+      "AI systems for agencies",
+      "SEO agency automation",
+      "AI agents for agencies",
+      "lead qualification automation",
+      "content automation",
+      "agency operations automation"
+    ],
+    ogImage: "/og-image.jpg"
+  },
   email: "sales@xydsolutions.com",
   address: "30 N GOULD ST STE R, SHERIDAN, WY 82801",
   calendlyUrl: "https://calendly.com/yongyi-xydsolutions/meeting",
